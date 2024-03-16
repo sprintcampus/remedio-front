@@ -2,6 +2,7 @@
 
 import VerticalNavigation from './nav'
 import { useState } from 'react'
+import "./../globals.css";
 
 export default function HeaderApp() {
     const [showVerticalNav, setShowVerticalNav] = useState(false)
@@ -9,6 +10,20 @@ export default function HeaderApp() {
     function onClickMenu() {
         setShowVerticalNav(!showVerticalNav)
     }
+
+    const [tituloFocado, setTituloFocado] = useState(false);
+
+    const mouseEmFoco = () => {
+        setTituloFocado(true);
+    };
+
+    const mouseDesfoque = () => {
+        setTituloFocado(false);
+    };
+
+    const tituloColorido = tituloFocado
+        ? 'titulobg text-transparent animate-gradient'
+        : ''
 
     return (
         <div>
@@ -26,11 +41,14 @@ export default function HeaderApp() {
                     items-center 
                     justify-between">
                     <div className="
-                        uppercase 
-                        text-gray-800 
+                        uppercase
+                        titulobg
                         font-black 
                         text-3xl">
-                        <a href="/">
+                        <a href="/"
+                        className={`${tituloColorido}`}
+                        onMouseEnter={mouseEmFoco}
+                        onMouseLeave={mouseDesfoque}>
                             REMEDIOS.APP
                         </a>
                     </div>
@@ -58,41 +76,34 @@ export default function HeaderApp() {
                                 Listar remédios
                             </a>
                         </nav>
-                        <button className="
-                            lg:hidden 
-                            flex 
-                            flex-col 
-                            ml-4 
-                            relative group" onClick={onClickMenu}>
-                            <span className="
-                                w-6
+                        <button className="lg:hidden flex flex-col ml-4 relative group" onClick={onClickMenu}>
+                            <span className={`
+                                w-6 
                                 h-1 
-                                bg-gray-800 
-                                mb-1
-                                transform 
-                                transition-transform 
-                                duration-200 
-                                ease-in group-hover:rotate-45 
-                                group-hover:translate-y-2" />
-                            <span className="
-                                w-6
-                                h-1 
-                                bg-gray-800 
-                                mb-1 opacity-100 
-                                transition-opacity 
-                                duration-200 
-                                ease-in group-hover:opacity-0" />
-                            <span className="
-                                w-6 h-1 
                                 bg-gray-800 
                                 mb-1 
                                 transform 
                                 transition-transform 
                                 duration-200 
-                                ease-in group-hover:-rotate-45 
-                                group-hover:-translate-y-2" />
+                                ${showVerticalNav ? 'translate-y-2 rotate-45' : ''}`} />
+                            <span className={`
+                                w-6 
+                                h-1 
+                                bg-gray-800 
+                                mb-1 
+                                transition-opacity 
+                                duration-200 
+                                ${showVerticalNav ? 'opacity-0' : ''}`} />
+                            <span className={`
+                                w-6 
+                                h-1 
+                                bg-gray-800 
+                                mb-1 
+                                transform 
+                                transition-transform 
+                                duration-200 
+                                ${showVerticalNav ? '-translate-y-2 -rotate-45' : ''}`} />
                         </button>
-
                     </div>
                 </div>
             </header>

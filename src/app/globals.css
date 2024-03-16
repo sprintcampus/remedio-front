@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+.titulobg {
+  background-image: linear-gradient(
+    to left,
+    #22d3ee,
+    #93c5fd,
+    #c4b5fd,
+    #d8b4fe,
+    #c4b5fd,
+    #93c5fd,
+    #22d3ee
+  );
+  background-size: 300% 300%;
+  background-clip: text;
+}
 /* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
