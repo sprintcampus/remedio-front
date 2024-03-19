@@ -5,8 +5,15 @@ import { useState } from "react"
 
 import styles from "./cadastrar.module.css";
 import { POST } from "@/app/api/remedios/route";
+import { useRouter } from "next/navigation";
+
+const fetcher = (
+    url: string, options?: RequestInit
+) => fetch(url, options).then((res) => res.json())
 
 export default function CadastrarRemedio() {
+
+    const router = useRouter()
 
     const [createDTO, setCreateDTO] = useState<RemedioCadastro>({
         id: 0,
@@ -70,14 +77,17 @@ export default function CadastrarRemedio() {
     }
 
     const save = async () => {
-        try {
-            const remedio = await POST(createDTO);
-            console.log('Remédio cadastrado:', remedio);
-            // Faça algo com o remedio, se necessário
-        } catch (error) {
-            console.error('Erro ao cadastrar remédio:', error);
-            // Faça algo com o erro, se necessário
-        }
+        
+        await fetcher('/api/remedios', {
+            method: "POST",
+            body: JSON.stringify(createDTO)
+        }).then(r => {
+            if(parseInt(r.status, 10) === 201) {
+                router.push("/remedios")
+            } else {
+                console.error('Erro ao cadastrar remédio:', r.status); 
+            }
+        })
     };
 
 
