@@ -201,6 +201,7 @@ export default function CadastrarRemedio() {
     return (
         <div className="flex flex-col w-full justify-center items-center">
             <h2 className="
+                mt-8
                 text-xl
                 uppercase
                 titulobg
