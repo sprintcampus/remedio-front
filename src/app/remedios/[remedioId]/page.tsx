@@ -29,9 +29,9 @@ const laboratorios: string[] = ["MEDLEY", "LABEXEMP"]
 export default function AtualizarRemedio() {
     const [updateDTO, setUpdateDTO] = useState<RemedioAtualizacao>({
         id: 0,
-        nome: "",
-        via: "",
-        laboratorio: ""
+        nome: "Nome Teste",
+        via: "ORAL",
+        laboratorio: "MEDLEY"
     })
 
     const [formularioPronto, setFormularioPronto] = useState<boolean>(false)
