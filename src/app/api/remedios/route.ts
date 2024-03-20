@@ -12,12 +12,12 @@ export async function GET() {
     return NextResponse.json(remedios)
 }
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
-    const createDTO: RemedioCadastro = req.body
+export async function POST(req: Request) {
+    const createDTO: RemedioCadastro= await req.json()
 
     let remedio : RemedioCadastro = await axios
         .post(detalhesApi.baseUrl, createDTO)
         .then(r => r.data)
 
-    return res.status(201).json(remedio)
+    return NextResponse.json(remedio)
 }
