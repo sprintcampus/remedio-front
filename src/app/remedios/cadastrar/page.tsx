@@ -209,7 +209,7 @@ export default function CadastrarRemedio() {
                 Cadastrar remedio
             </h2>
 
-            <div className="w-96 mb-4">
+            <div className="w-96 lg:w-1/3 mb-4">
                 <label className="
                 block 
                 mb-2 
@@ -242,7 +242,7 @@ export default function CadastrarRemedio() {
                 </p>
             </div>
 
-            <div className="w-96 mb-4">
+            <div className="w-96 lg:w-1/3 mb-4">
                 <label className="
                     block 
                     mb-2 
@@ -279,7 +279,7 @@ export default function CadastrarRemedio() {
                 </p>
             </div>
 
-            <div className="w-96 mb-4">
+            <div className="w-96 lg:w-1/3 mb-4">
                 <label className="
                     block 
                     mb-2 
@@ -317,7 +317,7 @@ export default function CadastrarRemedio() {
             </div>
 
 
-            <div className="w-96 mb-4">
+            <div className="w-96 lg:w-1/3  mb-4">
                 <label className="
                 block 
                 mb-2 
@@ -350,7 +350,7 @@ export default function CadastrarRemedio() {
                 </p>
             </div>
 
-            <div className="w-96 mb-8">
+            <div className="w-96 lg:w-1/3 mb-8">
                 <label className="
                 block 
                 mb-2 
@@ -376,7 +376,7 @@ export default function CadastrarRemedio() {
                     p-2.5"/>
             </div>
 
-            <div className="w-96 mb-4">
+            <div className="w-96 lg:w-1/3 mb-4">
                 <label htmlFor="validade"   
                     className="
                     block 
@@ -415,6 +415,7 @@ export default function CadastrarRemedio() {
             <button 
                 disabled={formularioPronto}
                 className={`
+                    mb-8
                     flex text-xl  
                     px-6 py-2 
                     rounded-md
