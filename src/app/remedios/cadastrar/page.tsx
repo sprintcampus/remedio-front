@@ -55,7 +55,7 @@ export default function CadastrarRemedio() {
         via: ""
     })
 
-    const [formularioPronto, setFormularioPronto] = useState(true)
+    const [formularioPronto, setFormularioPronto] = useState<boolean>(false)
 
     const [validador, setValidador] = useState<ValidadorRemedio>({
         nome: {
@@ -82,10 +82,16 @@ export default function CadastrarRemedio() {
 
     useEffect(() => {
         checarCampos()
-        setFormularioPronto(
-            Object.values(validador).every(val => val.ativo === false)
-        )
     }, [createDTO])
+
+    useEffect(() => {
+        console.log(formularioPronto)
+        setFormularioPronto(
+            !Object
+                .values(validador)
+                .every(val => val.ativo === false)
+        )
+    }, [validador])
 
     const vias: string[] = ["ORAL", "NASAL", "VENOSO", "INTRAMUSCULAR", "RETAL"]
     const laboratorios: string[] = ["MEDLEY", "LABEXEMP"]
@@ -407,21 +413,21 @@ export default function CadastrarRemedio() {
             </div>
 
             <button 
-            disabled={formularioPronto}
-            className={`
-                flex text-xl  
-                px-6 py-2 
-                rounded-md
-                bg-gradient-to-b from-cyan-100 to-white 
-                text-slate-900
-                hover:bg-gradient-to-b hover:from-cyan-200 hover:to-white 
-                ${formularioPronto? `
-                    disabled:bg-gradient-to-b 
-                    disabled:from-gray-200 
-                    disabled:to-white
-                    disabled:text-red-900
-                    disabled:cursor-not-allowed`: ''} 
-            `} 
+                disabled={formularioPronto}
+                className={`
+                    flex text-xl  
+                    px-6 py-2 
+                    rounded-md
+                    bg-gradient-to-b from-cyan-100 to-white 
+                    text-slate-900
+                    hover:bg-gradient-to-b hover:from-cyan-200 hover:to-white 
+                    ${formularioPronto? `
+                        disabled:bg-gradient-to-b 
+                        disabled:from-gray-200 
+                        disabled:to-white
+                        disabled:text-red-900
+                        disabled:cursor-not-allowed`: ``} 
+                `} 
             onClick={save}>
                 Enviar
             </button>
