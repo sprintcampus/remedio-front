@@ -30,7 +30,11 @@ const Remedios = () => {
         
     }
 
-    if (error) return <>Erro</>
+    if (error) return <div className='
+    flex 
+    p-6 
+    justify-center 
+    w-full'>Não foi possível se conectar a base de dados.</div>
     if (!data) return <div className='
         uppercase 
         flex 

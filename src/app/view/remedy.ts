@@ -5,7 +5,6 @@ interface RemedioBase {
 }
 
 export interface RemedioCadastro extends RemedioBase {
-    id: number,
     lote: string,
     quantidade: number,
     validade: string,

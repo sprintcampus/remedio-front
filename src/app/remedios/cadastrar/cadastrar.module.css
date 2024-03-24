@@ -1,0 +1,42 @@
+.cadastrarRemedioContainer{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 2rem;
+}
+
+.cadastrarRemedioContainer h2{
+    font-size: 3rem;
+}
+
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+}
+
+.inputContainer input{
+    border: 1px solid black;
+    padding: 0.50rem 0.25rem;
+}
+.inputContainer select{
+    padding: 0.50rem 0.25rem;
+}
+
+.submitButton{
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    border-radius: 0.65rem;
+    box-shadow: 0px 0px 10px #aaa;
+    background-color: #22d3ee;
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+
+.submitButton:hover{
+    box-shadow: 0px 0px 15px #888;
+}
