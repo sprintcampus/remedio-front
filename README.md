@@ -1,3 +1,18 @@
+# Instruções para rodar projeto
+
+1. Clonar o repositório
+
+2. Entrar na pasta do repositório
+
+Rodar os comandos:
+
+```bash
+npm install
+npm run dev
+```
+
+-----
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
